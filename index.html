@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Haven</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/icono.jpg" type="image/png">
+</head>
+<body onload="mostrarLogin()">
+
+   <!-- Modal de Inicio de Sesión/Registro -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-content">
+            <h2 id="loginTitle">Iniciar Sesión</h2>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" placeholder="Correo electrónico">
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" placeholder="Contraseña">
+
+            <!-- Botón de acción para ingresar o registrarse -->
+            <button onclick="login()" id="loginButton">Ingresar</button>
+
+            <!-- Botón para cambiar a formulario de registro -->
+            <button onclick="toggleForm()" style="background-color: #f0c674; color: #000; margin-top: 15px;">Registrar Nuevo Usuario</button>
+
+            <p id="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Modal de introducción sobre nosotros -->
+     <div id="aboutUsModal" class="intro-modal" style="display: none;">
+        <div class="intro-content">
+            <h2>Bienvenido a Byte Haven</h2>
+            <p>En <strong>Byte Haven</strong>, somos un equipo apasionado por la tecnología y la educación digital. Nuestro objetivo es proporcionarte recursos educativos accesibles y confiables sobre informática, hardware y software.</p>
+            <p>Nos dedicamos a construir un futuro más conectado, y nos alegra que formes parte de este proyecto.</p>
+            <button onclick="cerrarIntro()">Cerrar</button>
+        </div>
+    </div>
+
+
+    <!-- Contenido principal -->
+    <header>
+        <h1>Byte Heaven</h1>
+    </header>
+
+<!-- Botón para mostrar/ocultar el menú flotante -->
+<button id="toggleButton" onclick="toggleMenu()">☰ Menú</button>
+
+<!-- Contenedor para el fondo opaco -->
+<div id="menuOverlay" class="menu-overlay"></div>
+
+<!-- Menú flotante -->
+<div id="floatingMenu" class="floating-menu">
+    <ul>
+        <li><a href="#" onclick="mostrarSeccion('informatica')">Informática</a></li>
+        <li><a href="#" onclick="mostrarSeccion('hardware')">Hardware</a></li>
+        <li><a href="#" onclick="mostrarSeccion('software')">Software</a></li>
+        <li><a href="#" onclick="mostrarSeccion('arduino')">Arduino</a></li>
+        <li><a href="#" onclick="mostrarSeccion('sobre-nosotros')">Sobre Nosotros</a></li>
+    </ul>
+</div>
+    <!-- Sección de Informática -->
+    <section id="informatica" class="content">
+        <h2>Informática</h2>
+        <p>La informática es la ciencia que estudia el tratamiento automático de la información mediante dispositivos electrónicos y sistemas computacionales. Incluye tanto el diseño y la construcción de sistemas como la creación de algoritmos y aplicaciones.</p>
+        <h2>Derivados de la Informática</h2>
+        <ul>
+            <li><strong>Inteligencia Artificial</strong>: Tecnología que simula la inteligencia humana en máquinas, permitiéndoles aprender y tomar decisiones.</li>
+            <li><strong>Redes y Comunicación</strong>: Estudia los sistemas que permiten la conexión y transferencia de datos entre dispositivos.</li>
+            <li><strong>Seguridad Informática</strong>: Abarca métodos para proteger los datos y sistemas contra accesos no autorizados.</li>
+            <li><strong>Desarrollo de Software</strong>: Proceso de creación de aplicaciones y sistemas de software.</li>
+        </ul>
+        <img src="images/informatica.webp" alt="Imagen de informática">
+        <h2>Codificación</h2>
+        <p>La codificación es el proceso de escribir código en lenguajes de programación para crear software y aplicaciones. Es fundamental en el desarrollo de software y en otras ramas de la informática.</p>
+        <img src="images/codificacion.jpg" alt="Imagen de codificación">
+    </section>
+
+    <!-- Sección de Hardware -->
+<section id="hardware" class="content" style="display:none;">
+    <h2>Partes del Hardware</h2>
+    
+    <!-- Menú de selección de partes del hardware -->
+    <div id="hardwareMenu">
+        <button onclick="mostrarPartes('internas')">Partes Internas</button>
+        <button onclick="mostrarPartes('externas')">Partes Externas</button>
+    </div>
+
+    <!-- Submenú de partes internas -->
+    <div id="partesInternas" class="submenu" style="display:none;">
+        <h2>Componentes Internos</h2>
+        <ul>
+            <li>
+                <strong>Procesador (CPU):</strong> 
+                <p>La CPU, o Unidad Central de Procesamiento, es el "cerebro" del ordenador, encargada de ejecutar todas las instrucciones. Entre las mejores opciones se encuentran el <em>Intel Core i9</em> y el <em>AMD Ryzen 9</em>.</p>
+                <p>Disponibles en Amazon, Best Buy y Micro Center.</p>
+                <img src="img/cpu.jpg" alt="Procesador CPU" class="component-image">
+            </li>
+            
+            <li>
+                <strong>Memoria RAM:</strong> 
+                <p>La RAM almacena datos temporales para aplicaciones en uso, lo que permite un acceso rápido. Marcas reconocidas incluyen <em>Corsair</em> y <em>Kingston</em>.</p>
+                <p>Disponibles en tiendas como Newegg y Amazon.</p>
+                <img src="img/ram.webp" alt="Memoria RAM" class="component-image">
+            </li>
+
+            <li>
+                <strong>Tarjeta Gráfica (GPU):</strong> 
+                <p>Una GPU de calidad es crucial para videojuegos y edición de video. Entre las mejores opciones están la <em>NVIDIA GeForce RTX 4090</em> y la <em>AMD Radeon RX 7900 XTX</em>.</p>
+                <p>Disponibles en Amazon y tiendas de tecnología.</p>
+                <img src="img/gpu.jpg" alt="Tarjeta Gráfica GPU" class="component-image">
+            </li>
+
+            <li>
+                <strong>Placa Madre:</strong> 
+                <p>La placa madre es el circuito principal donde se conectan todos los componentes. Marcas como <em>ASUS</em> y <em>Gigabyte</em> son reconocidas por su durabilidad y capacidades avanzadas.</p>
+                <p>Disponibles en Amazon, Best Buy y Micro Center.</p>
+                <img src="img/motherboard.jpg" alt="Placa Madre" class="component-image">
+            </li>
+
+            <li>
+                <strong>Almacenamiento (HDD y SSD):</strong> 
+                <p>Los SSD mejoran el rendimiento, mientras que los HDD ofrecen más capacidad. Marcas populares incluyen <em>Samsung</em> y <em>Western Digital</em>.</p>
+                <p>Disponibles en Amazon y tiendas de tecnología.</p>
+                <img src="img/ssd.jpg" alt="Almacenamiento SSD" class="component-image">
+            </li>
+        </ul>
+    </div>
+
+    <!-- Submenú de partes externas -->
+    <div id="partesExternas" class="menu" style="display:none;">
+        <h2>Componentes Externos</h2>
+        <ul>
+            <li>
+                <strong>Teclado:</strong> 
+                <p>Un buen teclado mejora la experiencia de usuario. <em>Razer</em> y <em>Logitech</em> ofrecen teclados mecánicos de alta calidad para gaming, mientras que <em>Microsoft</em> y <em>Logitech</em> son ideales para oficina.</p>
+                <img src="img/keyboard.jpg" alt="Teclado" class="component-image">
+            </li>
+
+            <li>
+                <strong>Monitor:</strong> 
+                <p>Monitores de alta resolución como el <em>LG UltraGear</em> y el <em>Samsung Odyssey</em> son ideales para gaming y diseño gráfico.</p>
+                <img src="img/monitor.jpg" alt="Monitor" class="component-image">
+            </li>
+
+            <li>
+                <strong>Ratón (Mouse):</strong> 
+                <p>Ratones de alta precisión de marcas como <em>Logitech</em> y <em>Razer</em> son recomendados para tareas de diseño o gaming.</p>
+                <img src="img/mouse.webp" alt="Ratón" class="component-image">
+            </li>
+
+            <li>
+                <strong>Impresora:</strong> 
+                <p>Las impresoras de <em>HP</em> y <em>Canon</em> son ideales para oficina y hogar, con modelos láser y de inyección de tinta.</p>
+                <img src="img/printer.png" alt="Impresora" class="component-image">
+            </li>
+        </ul>
+    </div>
+</section>
+    <!-- Sección de Software -->
+    <section id="software" class="content" style="display: none;">
+        <h2>Software</h2>
+        <p>El software es el conjunto de programas que permiten ejecutar diferentes tareas en un dispositivo. A continuación, se detalla más sobre aplicaciones y sistemas operativos.</p>
+        <img src="images/software.jpg" alt="Imagen de software">
+        <h3>Aplicaciones</h3>
+        <p>Las aplicaciones son programas diseñados para realizar tareas específicas. Entre los pioneros en el desarrollo de aplicaciones están compañías como Microsoft, Apple y Google.</p>
+        <h3>Sistemas Operativos</h3>
+        <p>El sistema operativo es el software base que administra el hardware y permite la ejecución de aplicaciones. Ejemplos incluyen Windows, macOS y Linux.</p>
+        <h3>Programas Destacados</h3>
+        <ul>
+            <li><strong>Microsoft Visual Studio</strong>: IDE de desarrollo para crear aplicaciones en múltiples lenguajes. Popular entre desarrolladores de software.</li>
+            <li><strong>Visual Studio Code</strong>: Editor de código ligero y potente, también de Microsoft, con soporte para extensiones y múltiples lenguajes.</li>
+        </ul>
+    </section>
+
+    <!-- Sección de Instalación -->
+    <section id="instalacion" class="content" style="display: none;">
+        <h2>Instalación de Software</h2>
+        <p>El procedimiento para instalar software incluye descargar el programa, ejecutar el instalador, seguir las instrucciones y reiniciar si es necesario.</p>
+        <img src="images/instalacion.png" alt="Instalación de software">
+    </section>
+<!--Seccion de Arduino-->
+    <section id="arduino" class="content" style="display:none;">
+        <h2>Arduino</h2>
+        <p>Arduino es una plataforma de electrónica abierta para la creación de prototipos basada en software y hardware libre, flexible y fácil de usar. La placa Arduino está basada en un microcontrolador ATMEL.</p>
+        <p>Arduino puede interactuar con su entorno mediante sus pines de entrada y salida, utilizando una amplia gama de sensores, luces, motores y otros actuadores.</p>
+    
+        <div class="submenu-container">
+            <button class="submenu" onclick="mostrarSubseccion('prototipo')">Prototipo de Auto Park</button>
+            <button class="submenu" onclick="mostrarSubseccion('analisis')">Análisis del Prototipo</button>
+            <button class="submenu" onclick="mostrarSubseccion('familia')">Familia Arduino</button>
+            <button class="submenu" onclick="mostrarSubseccion('objetivos')">Objetivos</button>
+        </div>
+    
+        <!-- Prototipo de Auto Park -->
+        <section id="prototipo" class="subcontent">
+            <h2>Partes del Prototipo de Auto Park</h2>
+            <ul>
+                <li><strong>Arduino Uno:</strong> La placa principal utilizada en este proyecto.</li>
+                <li><strong>Sensor Ultrasonido HCSR04:</strong> Para detectar distancias y obstáculos.</li>
+                <li><strong>Protoboard:</strong> Permite conectar y probar componentes sin necesidad de soldadura.</li>
+                <li><strong>Servo Motor SG90:</strong> Actuador que permite movimiento controlado.</li>
+                <li><strong>Jumpers 20cm:</strong> Cables necesarios para realizar las conexiones.</li>
+            </ul>
+        </section>
+    
+        <!-- Análisis del Prototipo -->
+        <section id="analisis" class="subcontent" style="display:none;">
+            <h2>Análisis del Prototipo</h2>
+            <h3>Estructura Física</h3>
+            <p>El prototipo incluye un chasis base donde se montan el Arduino Uno, el sensor de ultrasonido y el servo motor, con conexiones realizadas mediante un protoboard y cables jumper.</p>
+            <h3>Procesamiento de Datos</h3>
+            <p>Para programar el Arduino, se utilizó el lenguaje C/C++ a través de la plataforma de desarrollo INO. El código fue desarrollado combinando conocimientos básicos de programación con investigaciones y pruebas continuas para asegurar un funcionamiento óptimo.</p>
+        </section>
+    
+        <!-- Familia Arduino -->
+        <section id="familia" class="subcontent" style="display:none;">
+            <h2>Familia de Arduino</h2>
+            <ul>
+                <li>Arduino Uno</li>
+                <li>Arduino Fio</li>
+                <li>Arduino Pro</li>
+                <li>Arduino Nano</li>
+                <li>Arduino Mini</li>
+                <li>Arduino Bluetooth</li>
+                <li>Arduino Leonardo</li>
+                <li>Arduino Serial</li>
+                <li>Arduino Mega ADK</li>
+                <li>Arduino Mega 2560</li>
+            </ul>
+        </section>
+    
+        <!-- Objetivos -->
+        <section id="objetivos" class="subcontent" style="display:none;">
+            <h2>Objetivos del Prototipo</h2>
+            <ul>
+                <li><strong>Objetivo Nro 1:</strong> Mostrar cómo la informática puede ayudar a mejorar el flujo de tránsito.</li>
+                <li><strong>Objetivo Nro 2:</strong> Dar a conocer las diferentes funciones del Arduino.</li>
+                <li><strong>Objetivo Nro 3:</strong> Incentivar a los interesados en la informática a crear sus propios prototipos.</li>
+            </ul>
+        </section>
+    </section>
+
+    <!--Seccion sobre nosotros -->
+     <section id="sobre-nosotros" class="content" style="display: none;">
+        <h2>Sobre Nosotros</h2>
+        <p>Bienvenidos a <strong>Byte Haven</strong>, un equipo apasionado por la tecnología y la educación digital. Nos dedicamos a crear contenido que te ayude a comprender de manera clara y accesible los conceptos clave de la informática, el hardware y el software.</p>
+
+        <h3>¿Quiénes Somos?</h3>
+        <p>Somos un grupo de estudiantes apasionados por la informática y la tecnología, con la misión de compartir nuestros conocimientos y contribuir al desarrollo de una sociedad digitalmente alfabetizada.</p>
+
+        <h3>Nuestra Finalidad</h3>
+        <p>Este proyecto fue creado para ofrecer recursos educativos sobre tecnología y computación. A través de Byte Haven, buscamos brindar acceso a información confiable y adaptada para todas las personas.</p>
+
+        <h3>Nuestro Objetivo</h3>
+        <p>Queremos inspirar a las personas a explorar mas sobre la tecnología y abrirse a nuevas oportunidades en el mundo digital.</p>
+
+        <h3>Únete a Nosotros</h3>
+        <p>Si compartes nuestra pasión por la tecnología y el aprendizaje, ¡únete a este gran equipo de estudiantes! Estamos aquí para crecer juntos y construir un futuro más conectado.</p>
+    </section>
+
+    <!-- Botón de vuelta al inicio -->
+    <button onclick="scrollToTop()" id="btnScrollTop" title="Volver al inicio">⬆</button>
+
+    <footer>
+        <p>© 2024 - Página creada por un grupo de alumnos del 2° A BTI</p>
+    </footer>
+
+
+    <script src="fila,es6"></script>
+</body>
+</html>
