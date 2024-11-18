@@ -1,0 +1,302 @@
+/* Estilos actualizados para el modal de inicio de sesión */
+.login-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.login-content {
+    background-color: #ffffff;
+    padding: 40px;
+    width: 500px; /* Hacer el formulario más ancho */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.login-content h2 {
+    font-size: 2em; /* Tamaño de fuente más grande para el título */
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-content label {
+    font-size: 1.2em; /* Tamaño de fuente más grande para las etiquetas */
+    font-weight: bold;
+    color: #333;
+}
+
+.login-content input {
+    width: 100%;
+    padding: 12px; /* Agrandar los campos de entrada */
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1.1em; /* Tamaño de fuente mayor para los campos de texto */
+}
+
+.login-content button {
+    width: 100%;
+    padding: 12px; /* Botón más grande */
+    background-color: #1a1f36;
+    color: rgb(238, 202, 202);
+    font-size: 1.2em; /* Tamaño de fuente más grande para el botón */
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-content button:hover {
+    background-color: #fff8f8;
+}
+
+#error-message {
+    color: red;
+    margin-top: 15px;
+    font-size: 1em;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 1;
+    background-color: #1a1f36; /* Fondo oscuro */
+    color: #f0f0f0;
+    text-align: center;
+}
+
+/* Encabezado */
+header {
+    background-color: rgba(22, 61, 87, 0.8);
+    padding: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #1791c2; /* Color amarillo claro para el título */
+}
+/* Botón para abrir el menú */
+#toggleButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #4a4f5c;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1001;
+}
+
+/* Fondo opaco */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Menú flotante */
+.floating-menu {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #282c34;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1002;
+    width: 300px;
+    text-align: center;
+}
+
+/* Lista del menú */
+.floating-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Enlaces del menú */
+.floating-menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.floating-menu ul li a:hover {
+    background-color: #4a4f5c;
+    color: #0a2580;
+}
+
+/* Sección de contenido */
+.content {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: rgba(167, 91, 91, 0.7);
+    border-radius: 9px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.content h2 {
+    font-size: 2em;
+    color: #0cb7ce;
+}
+
+.content h3 {
+    font-size: 1.5em;
+    color: #0cb7ce;
+}
+
+.content p, .content ul {
+    color: #f4f6f7;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+.content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.content img {
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+/* Estilos del botón de "Volver al inicio" */
+#btnScrollTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background-color: #f0c674;
+    color: #000;
+    border: none;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+#btnScrollTop:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    color: #f0c674;
+    font-size: 0.9em;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.5);
+}
+.qr-image {
+    max-width: 100%; /* La imagen no superará el ancho del contenedor */
+    height: auto; /* Mantiene la proporción */
+}
+/* Estilo general para las secciones de contenido */
+.content {
+    max-width: 90%; /* Aumenta el ancho de la sección */
+    margin: 20px auto; /* Centra la sección en la página */
+    font-size: 20px; /* Incrementa el tamaño del texto */
+    line-height: 1.8; /* Mejora la legibilidad */
+}
+
+/* Encabezados dentro de las secciones */
+.content h1,
+.content h2,
+.content h3 {
+    font-size: 3rem; /* Aumenta el tamaño de los encabezados */
+    text-align: center; /* Centra el texto de los encabezados */
+    margin-bottom: 18px;
+}
+
+/* Imágenes dentro de las secciones */
+.content img {
+    width: 90%; /* Asegura que las imágenes se ajusten al nuevo tamaño */
+    max-width: 600px; /* Tamaño máximo para evitar que sean demasiado grandes */
+    display: block;
+    margin: 15px auto; /* Centra las imágenes */
+    border-radius: 10px; /* Opcional: esquinas redondeadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Opcional: sombra para las imágenes */
+}
+
+/* Listas dentro de las secciones */
+.content ul {
+    font-size: 30px; /* Aumenta el tamaño de los elementos de la lista */
+    padding-left: 20px; /* Espacio para la indentación */
+    margin-bottom: 20px;
+}
+
+.content ul li {
+    margin-bottom: 18px; /* Espacio entre los elementos de la lista */
+}
+
+/* Parrafos */
+.content p {
+    font-size: 30px; /* Aumenta el tamaño de los párrafos */
+    margin-bottom: 40px;
+}
+/*submenu*/
+.submenu-container {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.submenu {
+    background-color: #252a30;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submenu:hover {
+    background-color: #2d3033;
+}
+
+.subcontent {
+    margin-top: 20px;
+}
+
+#arduino ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
