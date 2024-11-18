@@ -1,0 +1,28 @@
+body {
+    background-image: url('zoom-velocidad-tubo-luz-azul-abstracto-tecnologia-fondo-negro_1142-9120.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  h1 {
+        color: white;
+        font-family: 'Times New Roman', serif; 
+        font-size: 30px; 
+    }
+
+  Marquee {
+        color: white;
+        font-family: 'Times New Roman', serif; 
+        font-size: 30px; 
+    }
+
+  p {
+    color: white;
+    font-family: 'Times New Roman', serif; 
+    font-size: 30px; 
+}
+    h2  {
+        color: white;
+
+}
